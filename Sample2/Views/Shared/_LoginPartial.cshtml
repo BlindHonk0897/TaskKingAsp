@@ -1,0 +1,79 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Task-King", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
+                    <li>@Html.ActionLink("Movies", "Index", "Movies")</li>
+                    <li>@Html.ActionLink("Students", "Index", "Students")</li>
+                    <li>@Html.ActionLink("Task-King", "Current", "Employees")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Shuffle Task<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            @*<li><a href="#">Normal Shuffling</a></li>
+                            <li><a href="#">With Violations</a></li>*@
+                            <li><a href="#">-- Category --</a></li>
+                            <li class="divider"></li>
+                            @*<li><a href="#">Normal Shuffling</a></li>*@
+                            <li>@Html.ActionLink("Normal Shuffling", "Normal", "Employees")</li>
+                            @*<li><a href="#">With Violations</a></li>*@
+                            <li>@Html.ActionLink("With Violations", "Violation", "Employees")</li>
+                            @*<li class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>*@
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Records <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            @*<li><a href="#">Current Tasking</a></li>*@
+                            <li>@Html.ActionLink("Current Tasking", "Current", "Employees")</li>
+                            <li class="divider"></li>
+                            <li><a href="#">Coordinators</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Task Info</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                @Html.Partial("_LogNav")
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Task-King", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+}
